@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for book in books %}
+        <h6>Title:{{ book.title }} Author: {{ book.author }}
+            Year: {{ book.published_year }} Genre: {{ book.genre }}
+
+        </h6>
+        {% for review in reviews %}
+        {% if review.book == book %}
+            <h6>{{ review.reviewer_name }}, {{ review.comment }}</h6>
+            {% endif %}
+        {% endfor%}
+    {% endfor %}
+        
+</body>
+</html>
