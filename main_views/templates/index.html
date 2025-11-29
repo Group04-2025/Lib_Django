@@ -11,12 +11,19 @@
             Year: {{ book.published_year }} Genre: {{ book.genre }}
 
         </h6>
+
+        <a href = "{% url 'review_page' book.title %}"> Reviews </a>
         {% for review in reviews %}
         {% if review.book == book %}
             <h6>{{ review.reviewer_name }}, {{ review.comment }}</h6>
             {% endif %}
         {% endfor%}
+    {% endfor %}e
+
+
+    {% for genre in genres %}
+        <a href = "{% url 'genre_page' genre %}">{{ genre }}</a>
     {% endfor %}
-        
+
 </body>
 </html>
